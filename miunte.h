@@ -24,7 +24,7 @@ typedef struct MiunteResult {
     char const *const fn_name;
     char const *const err_msg;
 } MiunteResult;
-typedef MiunteResult (*MiunteTest)();
+typedef MiunteResult (*MiunteTest)(void);
 
 /// @brief Runs all tests, surrounding with `setup` and `teardown`.
 /// @param setup function to call before every test
