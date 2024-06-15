@@ -26,7 +26,11 @@ typedef struct MiunteResult {
 } MiunteResult;
 typedef MiunteResult (*MiunteTest)();
 
-#define miunte_test(setup, teardown, ...)                                      \
+/// @brief Runs all tests, surrounding with `setup` and `teardown`.
+/// @param setup function to call before every test
+/// @param setup function to call after every test
+/// @param ... tests themselves
+#define MIUNTE_RUN(setup, teardown, ...)                                       \
     {                                                                          \
         MiunteTest const _setup = (setup), _teardown = (teardown);             \
                                                                                \
@@ -91,14 +95,18 @@ typedef MiunteResult (*MiunteTest)();
     }                                                                          \
     ((void)0)
 
-#define miunte_expect(cond, message)                                           \
+/// @brief Test `cond`, if false, mark test as failed with `message`.
+/// @param cond condition to test
+/// @param message
+#define MIUNTE_EXPECT(cond, message)                                           \
     {                                                                          \
         if (!(cond))                                                           \
             return (MiunteResult){.fn_name = __func__, .err_msg = (message)};  \
     }                                                                          \
     ((void)0)
 
-#define miunte_pass()                                                          \
+// @brief Mark test as passed.
+#define MIUNTE_PASS()                                                          \
     { return (MiunteResult){.fn_name = __func__}; }                            \
     ((void)0)
 
