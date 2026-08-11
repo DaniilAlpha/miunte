@@ -25,7 +25,7 @@ typedef struct MiunteResult {
     int err_line;
 } MiunteResult;
 
-typedef MiunteResult MiunteTest();
+typedef MiunteResult MiunteTest(void);
 
 static inline int miunte_run(
     MiunteTest *const setup,
