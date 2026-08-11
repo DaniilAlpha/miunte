@@ -1,4 +1,4 @@
-#include "../miunte.h"
+#include <miunte.h>
 
 int testable = 0;
 
@@ -15,12 +15,12 @@ MiunteResult teardown() {
 }
 
 MiunteResult test1() {
-    MIUNTE_EXPECT(testable != 0, "do not fail");
+    MIUNTE_EXPECT(testable != 0, "lp0 on fire");
 
     MIUNTE_PASS();
 }
 MiunteResult test2() {
-    MIUNTE_EXPECT(testable == 0, "fails");
+    MIUNTE_EXPECT(testable == 0, "lp0 on fire");
 
     MIUNTE_PASS();
 }

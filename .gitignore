@@ -1,2 +1,4 @@
-.vscode/
-example/main
+.cache/
+build/
+
+.nvim/
