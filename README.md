@@ -13,9 +13,10 @@ include(FetchContent)
 
 # ...
 
-FetchContent_Declare(milo
+FetchContent_Declare(miunte
     GIT_REPOSITORY https://github.com/DaniilAlpha/miunte.git
     GIT_TAG v1.0.0 # put the tag or commit hash you want here (usually you should use the latest)
 )
+FetchContent_MakeAvailable(miunte)
 
 ```
